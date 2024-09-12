@@ -1,0 +1,38 @@
+﻿@page
+@model Employee_Management.Pages.DepartmentView.IndexModel
+@if ((int)ViewData["IsManager"] == 1 || (int)ViewData["IsManager"] == 0)
+{
+    <p>
+    <a asp-page="Create">Create New</a>
+</p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Department[0].DepartmentName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Department) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                    @if ((int)ViewData["IsManager"] == 1)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.DepartmentId">Edit</a>
+                    }
+                    <a asp-page="./Details" asp-route-id="@item.DepartmentId">Details</a> 
+                    @if ((int)ViewData["IsManager"] == 1)
+                    {
+                        <a asp-page="./Delete" asp-route-id="@item.DepartmentId">Delete</a>
+                    }
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

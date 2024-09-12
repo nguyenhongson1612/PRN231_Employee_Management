@@ -1,0 +1,43 @@
+﻿@page
+@model Employee_Management.Pages.EmployeeView.AssignDepartmentModel
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Employee.EmployeeId" />
+            <div class="form-group">
+                <label for="EmployeeId">Employee Name:</label>
+                <input type="text" value="@Model.Employee.Fullname" readonly />
+                @*<input type="text" id="EmployeeId" value="@Model.Employee.EmployeeId" title="@Model.Employee.Fullname" readonly />*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.DateOfBirth" class="control-label"></label>
+                <input asp-for="Employee.DateOfBirth" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                 <label for="DepartmentId">Department:</label>
+                <select id="DepartmentId" asp-for="SelectedDepartmentId">
+                        @foreach (var department in Model.Departments)
+                        {
+                            <option value="@department.DepartmentId">@department.DepartmentName</option>
+                        }
+                    </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Assign Department" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,76 @@
+﻿@page
+@model Employee_Management.Pages.AttendanceView.IndexModel
+@if ((int)ViewData["IsManager"] == 1 || (int)ViewData["IsManager"] == 0)
+{
+    <p>
+        <a style="text-decoration:none;" asp-page="Create">Check Attendance</a>
+    </p>
+    <form method="get">
+        <div>
+            <label asp-for="SelectedDepartment">Select Department: </label>
+            <select asp-for="SelectedDepartment">
+                <option value="0">All Departments</option>
+                @foreach (var department in Model.Departments)
+                {
+                    <option value="@department.DepartmentId">@department.DepartmentName</option>
+                }
+            </select>
+            <button type="submit">Filter</button>
+        </div>
+
+    </form>
+
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                AttendanceDate
+            </th>
+            <th>
+                EmployeeName
+            </th>
+            <th>
+                EmployeeId
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Attendance) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendanceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            <td>
+                    @if ((int)ViewData["IsManager"] == 1 || (int)ViewData["IsManager"] == 0)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.AttendanceId">Edit</a> 
+                        <a asp-page="./Details" asp-route-id="@item.AttendanceId">Details</a>
+                        if ((int)ViewData["IsManager"] == 1)
+                        {
+                            <a asp-page="./Delete" asp-route-id="@item.AttendanceId">Delete</a>
+                        }
+                    }
+                    else
+                    {
+                        <a asp-page="./Details" asp-route-id="@item.AttendanceId">Details</a>
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

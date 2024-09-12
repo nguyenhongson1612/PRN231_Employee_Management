@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Pages\AccountView\Create.cshtml" />
+    <None Include="Pages\AccountView\Delete.cshtml" />
+    <None Include="Pages\AccountView\Details.cshtml" />
+    <None Include="Pages\AccountView\Edit.cshtml" />
+    <None Include="Pages\AccountView\Index.cshtml" />
+    <None Include="Pages\DepartmentView\Create.cshtml" />
+    <None Include="Pages\DepartmentView\Delete.cshtml" />
+    <None Include="Pages\DepartmentView\Details.cshtml" />
+    <None Include="Pages\DepartmentView\Edit.cshtml" />
+    <None Include="Pages\DepartmentView\Index.cshtml" />
+    <None Include="Pages\EmployeePositionView\Create.cshtml" />
+    <None Include="Pages\EmployeePositionView\Delete.cshtml" />
+    <None Include="Pages\EmployeePositionView\Details.cshtml" />
+    <None Include="Pages\EmployeePositionView\Edit.cshtml" />
+    <None Include="Pages\EmployeePositionView\Index.cshtml" />
+    <None Include="Pages\EmployeeView\Create.cshtml" />
+    <None Include="Pages\EmployeeView\Delete.cshtml" />
+    <None Include="Pages\EmployeeView\Details.cshtml" />
+    <None Include="Pages\EmployeeView\Edit.cshtml" />
+    <None Include="Pages\EmployeeView\Index.cshtml" />
+    <None Include="Pages\PositionView\Create.cshtml" />
+    <None Include="Pages\PositionView\Delete.cshtml" />
+    <None Include="Pages\PositionView\Details.cshtml" />
+    <None Include="Pages\PositionView\Edit.cshtml" />
+    <None Include="Pages\PositionView\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.24">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.24">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+</Project>

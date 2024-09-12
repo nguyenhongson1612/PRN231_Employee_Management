@@ -1,0 +1,49 @@
+﻿@page
+@model Employee_Management.Pages.EmployeePositionView.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeePosition[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeePosition[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeePosition[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeePosition[0].Position)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.EmployeePosition) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Employee.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.PositionName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { employeeId = item.EmployeeId, positionId = item.PositionId, startDate = item.StartDate }) |
+                @Html.ActionLink("Details", "Details", new { employeeId = item.EmployeeId, positionId = item.PositionId, startDate = item.StartDate }) |
+                @Html.ActionLink("Delete", "Delete", new { employeeId = item.EmployeeId, positionId = item.PositionId, startDate = item.StartDate })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
